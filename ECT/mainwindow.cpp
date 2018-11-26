@@ -6,7 +6,6 @@
  * 作者：孙先亮
  *************************************
  * 2016.11.21更新：增加时间显示，增益按钮
- * 电容计算增加最小二乘法
  * 2016.12.06
  * 删除最小二乘法，增加空满管判断机制，消除8个点
  * 2016.12.15
@@ -46,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     QDir::setCurrent(QCoreApplication::applicationDirPath());
-    ui->setupUi(this);  
+    ui->setupUi(this);
     //电容数据曲线窗口初始化
     uicapcolu=new cuicapcolu();
     mdicapcolu=ui->mdiArea->addSubWindow(uicapcolu);
@@ -103,7 +102,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::on_action_set_commun_triggered()//打开设置串口界面
-{  
+{
     uicommun->show();
 }
 void MainWindow::initialization()//两个绘图界面初始化
@@ -263,7 +262,7 @@ void MainWindow::re_calibration()
     on_action_start_commun_triggered();
 }
 void MainWindow::transIntToFlt()//数据计算
-{ 
+{
     //浓度分布计算
     float a=0,b=0;
     for(int i=0;i<28;i++)
