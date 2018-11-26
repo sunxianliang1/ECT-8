@@ -6,29 +6,21 @@
 #include<QFile>
 #include<QTextStream>
 #include<QMessageBox>
-#include<QDir>
-#include <QApplication>
-#include<QString>
-#include"option.h"
 class compute
 {
 
 private:
-    float cm[N];
-    float cmfm[N];
-    float lmc[N][M];
-    float sb[N][M];
+    float cm[28];
+    float cmfm[28];
+    float lmc[28][664];
+    float sb[28][664];
     float max;
 public:
-    float fltcapempty[N];
-    float fltcapfull[N];
-    float gk[M];
+    float fltcapempty[28];
+    float fltcapfull[28];
+    float gk[664];
     void  set(float cm1[]);
     void  comp();
-    float eigen();
-    void  matrixx(float A[][M],float x[],float v[]);
-    float slove(float v[]);
-
     compute();
     ~compute();
 };

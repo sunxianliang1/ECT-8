@@ -3,58 +3,49 @@
 # Project created by QtCreator 2018-02-27T19:08:51
 #
 #-------------------------------------------------
-
 QT       += core gui
-QT += charts
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = ECT
 TEMPLATE = app
 
-DEFINES += QT_DEPRECATED_WARNINGS
 
-
-SOURCES += \
-        main.cpp \
+SOURCES += main.cpp\
         mainwindow.cpp \
+    qcustomplot.cpp \
+    compute.cpp \
+    cuicapcolu.cpp \
+    cuiconline.cpp \
+    cuiconrect.cpp \
+    cuiconcir.cpp \
     communication.cpp \
     Qled.cpp \
-    usbthread.cpp \
-    compute.cpp \
-    cuicapcolu.cpp
+    usbthread.cpp
 
-HEADERS += \
-        mainwindow.h \
+HEADERS  += mainwindow.h \
+    qcustomplot.h \
+    compute.h \
+    cuicapcolu.h \
+    cuiconline.h \
+    cuiconrect.h \
+    cuiconcir.h \
     communication.h \
-    cyapi/CyAPI.h \
-    option.h \
     Qled.h \
     usbthread.h \
-    compute.h \
-    cyapi/CyAPI.h \
-    cyapi/cyioctl.h \
-    cyapi/cyusb30_def.h \
-    cyapi/usb100.h \
-    cyapi/usb200.h \
-    cyapi/UsbdStatus.h \
-    cyapi/VersionNo.h \
-    cuicapcolu.h
+    cyapi/CyAPI.h
 
-FORMS += \
-        mainwindow.ui \
-    communication.ui \
-    capcolu.ui
+FORMS    += mainwindow.ui \
+    capcolu.ui \
+    conline.ui \
+    conrect.ui \
+    concir.ui \
+    communication.ui
 
 RESOURCES += \
     icon.qrc
 
+DISTFILES +=
 LIBS += -L$$PWD/cyapi/ -lCyAPI
 INCLUDEPATH += $$PWD/cyapi
 DEPENDPATH += $$PWD/cyapi
-
-NODEFAULTLIB:library  #因为引入外部库，所以库类型与默认不同
-
-DISTFILES += \
-    cyapi/CyAPI.lib
-

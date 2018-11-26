@@ -1,15 +1,11 @@
-﻿#ifndef CUICAPCOLU_H
-#define CUICAPCOLU_H
+﻿#ifndef CDATAVIEW_H
+#define CDATAVIEW_H
 
-#include<option.h>
 #include <QWidget>
-#include <QtCharts/QChart>
-#include <QtCharts/QBarSeries>
-#include <QtCharts/QBarSet>
-using namespace QtCharts;
-
+#include<QVector>
+#include"qcustomplot.h"
 namespace Ui {
-class cuicapcolu;
+class capcolu;
 }
 
 class cuicapcolu : public QWidget
@@ -23,10 +19,10 @@ public:
     void plot(const float cdata[]);
     void closeEvent(QCloseEvent *event);
 private:
-    Ui::cuicapcolu *ui;
-    QBarSet *set0;
-    QBarSeries *series;
-    QChart *chart ;
+    Ui::capcolu *ui;
+    QCPBars *myBars;
+    QVector <double> x;
+    QVector <double> y;
 };
 
-#endif // CUICAPCOLU_H
+#endif // CDATAVIEW_H

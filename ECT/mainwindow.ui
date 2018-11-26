@@ -6,21 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>550</height>
+    <width>593</width>
+    <height>449</height>
    </rect>
-  </property>
-  <property name="minimumSize">
-   <size>
-    <width>800</width>
-    <height>550</height>
-   </size>
   </property>
   <property name="windowTitle">
    <string>ECT系统</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="icon.qrc">
     <normaloff>:/icon/F:/漂亮ico/我的电脑/c6.ico</normaloff>:/icon/F:/漂亮ico/我的电脑/c6.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -60,8 +54,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>26</height>
+     <width>593</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu_file">
@@ -365,7 +359,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>110</x>
        <y>52</y>
-       <width>21</width>
+       <width>16</width>
        <height>16</height>
       </rect>
      </property>
@@ -378,7 +372,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_open_file">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/文件操作/folder.png</normaloff>:/漂亮ico/文件操作/folder.png</iconset>
+     <normaloff>:/icon/F:/漂亮ico/文件操作/folder.ico</normaloff>:/icon/F:/漂亮ico/文件操作/folder.ico</iconset>
    </property>
    <property name="text">
     <string>打开文件</string>
@@ -441,7 +435,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_set_commun">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/文件操作/gear.png</normaloff>:/漂亮ico/文件操作/gear.png</iconset>
+     <normaloff>:/icon/F:/漂亮ico/文件操作/gear.png</normaloff>:/icon/F:/漂亮ico/文件操作/gear.png</iconset>
    </property>
    <property name="text">
     <string>连接下位机</string>
@@ -450,7 +444,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_save_location">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/文件操作/save_as.ico</normaloff>:/漂亮ico/文件操作/save_as.ico</iconset>
+     <normaloff>:/icon/F:/漂亮ico/文件操作/save_as.ico</normaloff>:/icon/F:/漂亮ico/文件操作/save_as.ico</iconset>
    </property>
    <property name="text">
     <string>保存位置</string>
@@ -459,7 +453,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_start_commun">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/文件操作/media_playback_start.ico</normaloff>:/漂亮ico/文件操作/media_playback_start.ico</iconset>
+     <normaloff>:/icon/F:/漂亮ico/文件操作/media_playback_start.ico</normaloff>:/icon/F:/漂亮ico/文件操作/media_playback_start.ico</iconset>
    </property>
    <property name="text">
     <string>开始测量</string>
@@ -471,7 +465,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_stop_commun">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/文件操作/delete_2.png</normaloff>:/漂亮ico/文件操作/delete_2.png</iconset>
+     <normaloff>:/icon/F:/漂亮ico/文件操作/delete_2.png</normaloff>:/icon/F:/漂亮ico/文件操作/delete_2.png</iconset>
    </property>
    <property name="text">
     <string>停止测量</string>
@@ -483,7 +477,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_startfile">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/媒体/play_24.png</normaloff>:/漂亮ico/媒体/play_24.png</iconset>
+     <normaloff>:/icon/F:/漂亮ico/媒体/play_24.png</normaloff>:/icon/F:/漂亮ico/媒体/play_24.png</iconset>
    </property>
    <property name="text">
     <string>开始</string>
@@ -498,7 +492,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_pausefile">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/媒体/pause_24.png</normaloff>:/漂亮ico/媒体/pause_24.png</iconset>
+     <normaloff>:/icon/F:/漂亮ico/媒体/pause_24.png</normaloff>:/icon/F:/漂亮ico/媒体/pause_24.png</iconset>
    </property>
    <property name="text">
     <string>暂停</string>
@@ -513,7 +507,7 @@ p, li { white-space: pre-wrap; }
   <action name="action_stopfile">
    <property name="icon">
     <iconset resource="icon.qrc">
-     <normaloff>:/漂亮ico/媒体/stop.png</normaloff>:/漂亮ico/媒体/stop.png</iconset>
+     <normaloff>:/icon/F:/漂亮ico/媒体/stop.png</normaloff>:/icon/F:/漂亮ico/媒体/stop.png</iconset>
    </property>
    <property name="text">
     <string>停止</string>

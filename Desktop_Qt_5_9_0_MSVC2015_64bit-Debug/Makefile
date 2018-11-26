@@ -235,7 +235,7 @@ Makefile: ..\ECT\ECT.pro C:\Qt\Qt5.9.0\5.9\msvc2015_64\mkspecs\win32-msvc\qmake.
 		C:\Qt\Qt5.9.0\5.9\msvc2015_64\mkspecs\features\lex.prf \
 		..\ECT\ECT.pro \
 		C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\qtmaind.prl \
-		C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Charts.prl \
+		C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5PrintSupport.prl \
 		C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Widgets.prl \
 		C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Gui.prl \
 		C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Core.prl
@@ -399,7 +399,7 @@ C:\Qt\Qt5.9.0\5.9\msvc2015_64\mkspecs\features\yacc.prf:
 C:\Qt\Qt5.9.0\5.9\msvc2015_64\mkspecs\features\lex.prf:
 ..\ECT\ECT.pro:
 C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\qtmaind.prl:
-C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Charts.prl:
+C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5PrintSupport.prl:
 C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Widgets.prl:
 C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Gui.prl:
 C:\Qt\Qt5.9.0\5.9\msvc2015_64\lib\Qt5Core.prl:

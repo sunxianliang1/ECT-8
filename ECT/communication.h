@@ -10,7 +10,6 @@
 #include"Qled.h"
 #include"usbthread.h"
 #include"QMessageBox"
-#include"option.h"
 #include<QTextStream>
 #include<QFileDialog>
 namespace Ui {
@@ -33,9 +32,9 @@ public:
     int     count;
     QTimer  TimerforFPS;
     //接收到的变量
-    qint16  intcapdata[N];
-    qint16  intcapempty[N];
-    qint16  intcapfull[N];
+    qint16  intcapdata[28];
+    qint16  intcapempty[28];
+    qint16  intcapfull[28];
     usbthread *readthread;
     bool startreadflag;
     //定义指示灯

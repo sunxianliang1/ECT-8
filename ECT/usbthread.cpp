@@ -7,12 +7,8 @@ usbthread::usbthread(QObject *parent) : QThread(parent)
 
 void usbthread::run()
 {
-    const int QueueSize = 32;//队列数量
-    long totalTransferSize=64 ;//缓冲区
-    if(electric==8)
-        totalTransferSize=64;
-    else if(electric==12)
-        totalTransferSize=128;
+    const int QueueSize = 32;
+    long totalTransferSize = 64;
     PUCHAR			*buffersInput = new PUCHAR[QueueSize];
     PUCHAR			*contextsInput = new PUCHAR[QueueSize];
     OVERLAPPED		inOvLap[32];
@@ -30,7 +26,7 @@ void usbthread::run()
     long nCount = 0;
     long readLength = totalTransferSize;
     quint8 b1,b2;
-    qint16 c,a[32],b[N];
+    qint16 c,a[32],b[28];
     while (readflag)
     {
         if (!ThepBulkIn->WaitForXfer(&inOvLap[nCount], 2))
@@ -48,14 +44,14 @@ void usbthread::run()
                  c=b1<<8|b2;
                  a[i/2]=c;
              }
-             if(a[0]==0x6556&&a[1]==0x0111&&a[2]==0x001C&&a[N+3]==0x0520)
+             if(a[0]==0x6556&&a[1]==0x0111&&a[2]==0x001C&&a[31]==0x0520)
              {
-                 for(int i=3;i<N+3;i++)
+                 for(int i=3;i<31;i++)
                  {
                      b[i-3]=a[i];
                  }
                  emit readdate(b);
-             }
+             }        
         }
         contextsInput[nCount] = ThepBulkIn->BeginDataXfer(buffersInput[nCount], totalTransferSize, &inOvLap[nCount]);
         nCount++;

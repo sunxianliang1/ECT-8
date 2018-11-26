@@ -26,7 +26,7 @@ communication::~communication()
 }
 void communication::startinit()//初始化
 {
-    for(int i=0;i<N;i++)
+    for(int i=0;i<28;i++)
     {
         intcapdata[i]=0;
         intcapempty[i]=0;
@@ -69,7 +69,7 @@ bool communication::connectUSB()//连接下位机
         USBConnected=1;
     }
     else
-    {
+    {       
         USBConnected=0;
     }
     return USBConnected;
@@ -187,13 +187,13 @@ void communication::on_pushBut_Refind_clicked()//寻找下位机
         if (Read[0]==0x6556&&Read[1]==0x0100&&Read[2]==0x0520)
         {
             FlagSearchLow=1;
-            lightfind->setAlarm(2);
+            lightfind->setAlarm(2);          
             int k=XY_Prepare_Calibration();
             if(k==0)
                 QMessageBox::information(this, tr("准备标定"), tr("准备超时！"));
             if(k==100)
                 QMessageBox::information(this, tr("准备标定"), tr("准备成功！"));
-            break;
+            break;           
         }
     }
     if(j==0)//USB连接好但下位机无响应
@@ -218,7 +218,7 @@ void communication::on_pushBut_EmptyCalibration_clicked()//点击空管标定按
     }
     if(Empty_Prepared!=2)
     {
-        qint16 Read[N+4];
+        qint16 Read[32];
         int k=0;
         for(int i=0;i<10;i++)
         {
@@ -226,9 +226,9 @@ void communication::on_pushBut_EmptyCalibration_clicked()//点击空管标定按
             delay(100);
             if(!write)continue;
             read4USB(Read);
-            if(Read[0]==0x6556&&Read[1]==0x0102&&Read[2]==0x001C&&Read[N+3]==0x0520)
+            if(Read[0]==0x6556&&Read[1]==0x0102&&Read[2]==0x001C&&Read[31]==0x0520)
             {
-                for(int j=3;j<N+3;j++)
+                for(int j=3;j<31;j++)
                     intcapempty[k++]=Read[j];
                 Empty_Prepared=2;
                 lightempty->setAlarm(Empty_Prepared);
@@ -241,12 +241,12 @@ void communication::on_pushBut_EmptyCalibration_clicked()//点击空管标定按
     }
     else
     {
-        qint16 empty[N]={0},a[N]={0};
-        qint16 emptysum[N]={0};
-        bool issame=0;
+        qint16 empty[28]={0},a[28]={0};
+        qint16 emptysum[28]={0};
+        bool issame=0;int k=0;
         for(int i=0;i<50;i++)
         {
-            for(int j=0;j<N;j++)
+            for(int j=0;j<28;j++)
             {
                 if(empty[j]==intcapdata[j])
                 {
@@ -257,7 +257,7 @@ void communication::on_pushBut_EmptyCalibration_clicked()//点击空管标定按
             }
             if(issame==0)
             {
-                for(int j=0;j<N;j++)
+                for(int j=0;j<28;j++)
                     emptysum[j]=empty[j];
                 break;
             }
@@ -284,7 +284,7 @@ void communication::on_pushBut_FullCalibration_clicked()//点击满管标定按�
     }
     if(Full_Prepared!=2)
     {
-        qint16 Read[N+4];
+        qint16 Read[32];
         int k=0;
         for(int i=0;i<10;i++)
         {
@@ -293,10 +293,10 @@ void communication::on_pushBut_FullCalibration_clicked()//点击满管标定按�
             delay(100);
             if(!write)continue;
             read4USB(Read);
-            if(Read[0]==0x6556&&Read[1]==0x0103&&Read[2]==0x001C&&Read[N+3]==0x0520)
+            if(Read[0]==0x6556&&Read[1]==0x0103&&Read[2]==0x001C&&Read[31]==0x0520)
             {
                 k=0;
-                for(int j=3;j<N+3;j++)
+                for(int j=3;j<31;j++)
                     intcapfull[k++]=Read[j];
                 Full_Prepared=2;
                 lightfull->setAlarm(Full_Prepared);
@@ -309,13 +309,13 @@ void communication::on_pushBut_FullCalibration_clicked()//点击满管标定按�
     }
     else
     {
-        qint16 full[N]={0};
-        qint16 fullsum[N]={0};
-        bool issame=0;
+        qint16 full[28]={0};
+        qint16 fullsum[28]={0};
+        bool issame=0;int k=0;
         for(int i=0;i<50;i++)
         {
 
-            for(int j=0;j<N;j++)
+            for(int j=0;j<28;j++)
             {
                 if( full[j]==intcapdata[j])
                 {
@@ -326,7 +326,7 @@ void communication::on_pushBut_FullCalibration_clicked()//点击满管标定按�
             }
             if(issame==0)
             {
-                for(int j=0;j<N;j++)
+                for(int j=0;j<28;j++)
                     fullsum[j]=full[j];
             }
             issame=0;
@@ -382,7 +382,7 @@ void communication::on_pushBut_ReadCalibrition_clicked()//读取标定
         cal_filename->open(QIODevice::ReadOnly|QIODevice::Text);
         QTextStream incal;
         incal.setDevice(cal_filename);
-        int a[N],b[N];
+        int a[28],b[28];
         QString string;
         string=incal.readLine();
         if (string!="calibration of empty:")
@@ -390,7 +390,7 @@ void communication::on_pushBut_ReadCalibrition_clicked()//读取标定
             QMessageBox::warning(this,tr("警告"),tr("文件错误"));
             return;
         }
-        for (int i=0;i<N;i++)
+        for (int i=0;i<28;i++)
         {
             incal>>a[i];
         }
@@ -401,12 +401,12 @@ void communication::on_pushBut_ReadCalibrition_clicked()//读取标定
             QMessageBox::warning(this,tr("警告"),tr("文件错误"));
             return;
         }
-        for (int i=0;i<N;i++)
+        for (int i=0;i<28;i++)
         {
             incal>>b[i];
         }
         cal_filename->close();
-        for (int i=0;i<N;i++)
+        for (int i=0;i<28;i++)
         {
             intcapempty[i]=a[i];
             intcapfull[i]=b[i];
@@ -434,7 +434,7 @@ void communication::on_pushBut_StopRead_clicked()//停止测量
 
 void communication::slot_received(qint16 *a)
 {
-    for(int i=0;i<N;i++)
+    for(int i=0;i<28;i++)
         intcapdata[i]=*(a+i);
     emit received();
     count++;
